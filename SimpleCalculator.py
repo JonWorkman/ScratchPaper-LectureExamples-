@@ -10,7 +10,12 @@ while operation != 5:
     print()
 
     #get input for choice of operation
+    #get initial input
     operation = int(input("What operation do you want to do?: "))
+    #check the input
+    while operation < 1 or operation > 5:
+        print("Sorry, I didn't quite get that.")
+        operation = int(input("What operation do you want to do?: "))
     print()
 
     #Beak the program
@@ -44,6 +49,8 @@ while operation != 5:
         output = num1 / num2
         op = "/"
     else:
-        print("Sorry, I didn't understand that.")
+        print("Sorry, I didn't quite get that.")
     #print results
     print(num1, op, num2, "=", output)
+    print()
+    print()
