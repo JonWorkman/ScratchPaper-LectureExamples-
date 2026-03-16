@@ -13,11 +13,6 @@ def view_list():
             print(str(i + 1) + "." + grocery_list[i])
         print()
 
-def add_item():
-    view_list()
-    print("+ Add item to list +")
-    get_item_input()
-
 #prompts user for items to add to the list
 def get_item_input():
     while True:
@@ -27,6 +22,11 @@ def get_item_input():
             break
 
         grocery_list.append(item)
+
+def add_item():
+    view_list()
+    print("+ Add item to list +")
+    get_item_input()
 
 def create_list():
     grocery_list.clear()
