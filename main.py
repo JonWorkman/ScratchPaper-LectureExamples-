@@ -23,7 +23,7 @@ def get_item_input():
     while True:
         item = input("Enter item (Or enter 'Q' to quit): ")
 
-        if item.upper == "Q":
+        if item.upper == "q":
             break
 
         grocery_list.append(item)
@@ -34,8 +34,19 @@ def create_list():
     get_item_input()
 
 def shop_list():
-    pass
+    print("+ Shop with list +")
 
+    while len(grocery_list) > 0:
+        view_list()
+
+        item = int(input("Enter item you found: "))
+        while item < 0 or item > len(grocery_list):
+            print("I'm sorry, which item?")
+            item = int(input("Enter item you found: "))
+        del(grocery_list[item-1])
+    print()
+    print("The list is empty! Good Job!")
+    print()
 
 def main():
     choice = 0
