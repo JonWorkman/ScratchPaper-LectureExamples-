@@ -1,30 +1,66 @@
 #grocery list program
 #add, delete (as we pick), end exit out
+grocery_list = []
+
+def view_list():
+    if len(grocery_list) == 0:
+        print("Sorry, you don't have a list yet.")
+    else:
+        print("Here is your list: ")
+        #for item in grocery_list:
+        #    print(item)
+        for i in range(len(grocery_list)):
+            print(str(i + 1) + "." + grocery_list[i])
+        print()
+
+def add_item():
+    view_list()
+    print("+ Add item to list +")
+    get_item_input()
+
+#prompts user for items to add to the list
+def get_item_input():
+    while True:
+        item = input("Enter item (Or enter 'Q' to quit): ")
+
+        if item.upper == "Q":
+            break
+
+        grocery_list.append(item)
 
 def create_list():
-    pass
+    grocery_list.clear()
+    print("+ Create new list +")
+    get_item_input()
 
 def shop_list():
     pass
 
+
 def main():
     choice = 0
-    while choice != 3:
+    while choice != 5:
         print("+++ Grocery list Program +++")
-        print("1. Create list")
-        print("2. Shop with list")
+        print("1. View Current list")
+        print("2. Add item")
+        print("3. Create New list")
+        print("4. Shop with list")
         print("3. Exit")
 
         choice = int(input("What would you like to do? : "))
-        while choice < 1 or choice > 3:
+        while choice < 1 or choice > 5:
             print("Sorry, I didn't quite get that.")
             print()
             choice = int(input("What would you like to do again? : "))
 
         print() #break up console prints
         if choice == 1:
-            create_list()
+            view_list()
         elif choice == 2:
+            add_item()
+        elif choice == 3:
+            create_list()
+        elif choice == 4:
             shop_list()
         else:
             print("Ok, bye!")
